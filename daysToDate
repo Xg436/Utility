@@ -2,7 +2,7 @@
 int daysToDate(int days)
 {
     int year = (days += 719468) / 146097 * 400;
-    int y1 = (days %= 146097) >= 146000 ? 399 : (days / 365.249 + 0.0021 + days / 36524 / 400.0);
+	int y1 =((days %= 146097)  + 0.75 + days / 36524 - days / 146096) / 365.25;
     int mon = ((days -= (y1 * 365 + y1 / 4 - y1 / 100)) * 12 + 4) / 367;
     days -= (mon * 367 + 7) / 12;
     if ((mon += 2) >= 12)
